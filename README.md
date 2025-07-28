@@ -1,8 +1,9 @@
-# Robotic-Chess
+## Robotic-Chess
 This is our progress on creating a physical board for two-player remote chess matches.
 The idea is to make three boards within a budget of $1000 and 30 days.
 This project is very much a work in progress but I am updating it with information, diagrams, and code as I work through it.
 
+#What is it?
 The goal of this project is to have to 2 chess boards that roboticaly move pieces based on opponent actions and communicate through a private central server.
 The main mechanical system of each board is a coreXY gantry operated by two stepper motors and a belt and pully system.
 The movement of pieces is done through a magnet under the board and zinc bottom plated pieces.
