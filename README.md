@@ -19,8 +19,30 @@ The cycle continues until one player wins.
 The mechanical system was the first portion of the project to be planned out. From the start we knew that we wanted the system to work by using a magnet on a gantry beneath the board to drag the pieces on the other side.
 From here we needed to decide on how we wanted the gantry system to work.
 We decided that we wouldnt try and reinvent the wheel and browsed a few different systems used commonly in 3D printers.
-After looking through a our options, we settled on using a core-XY system.
+After looking through a our options, we settled on using a core-XY system which I have provided a diagram for below.
+We chose this system because all of the brackets could be easily 3D printed and both of the motors were on the same side which I will explain the importance of shortly.
+Given that printer fillament is much cheaper that buyable brackets and wood, anything that could be 3D printed was.
+Doing this also gave lots of creative freedom on how parts could look as well as addition functionality in places where it was needed.
+Before I talk about the brackets that I made, I should talk about how the core-XY system actually works.
+#### How does it work?
+The diagram that I provided is top down view and shows how things allign in the XY-plane but we need to focus on the Z-axis to understand it fully.
+Each black circle in the diagram is actually a stack of pullys and the colored lines are drive belts.
+Each pully stack consists of two pullys, one toothed and the other smooth, as well as three small washers to prevent rubbing.
+Which pully goes on top or bottom depends on how the system is set up, but the the toothed pullys interact with the toothed side of the belt and the smooth pullys interact with the smooth side.
+The red and blue lines are drive belts that sit at different positions on the Z-axis and only interact with the pullys on that plane.
+So the drive belt on bottom interacts only with the pullys on the bottom of each stack and vice versa.
+Where the belts cross at the top, they do not collide but cross over or under each other.
 <img width="520" height="552" alt="Image" src="https://github.com/user-attachments/assets/09db13cd-5efd-45a4-b1ca-fb58bdc8525f" />
+#### The Brackets
+There are a total of four different brackets that I needed to design and print.
+The bracket for the y-axis rails, x-axis rail, and each corner bracket.
+I started with the y-axis brackets as they could be used to hold the rails together for a physical representation.
+These brackets had two main purposes, to hold the x-axis rail in place and to house a couple pully stacks.
+I went through a couple iterations to find what worked best for our needs, and ended up with a design that effectively hung the x-axis rail from the bottom of the y-axis rails.
+This was necessary because we bought a premade chessboard and didnt have enough clearance and we need to leave clearance for the magnet mechanism.
+This did add height but it turned out to be a good thing by the end of the project.
+I have provided the solidworks files in this page so anyone can use and modify to their needs as well.
+
 ### Magnetic Activation
 
 ## Electrical System
