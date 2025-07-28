@@ -1,6 +1,7 @@
 # Robotic-Chess
 This is our progress on creating a physical board for two-player remote chess matches.
-The idea is to make three boards within a budget of $1000 and 30 days.
+The idea was to make three boards within a budget of $1000 and 30 days starting on June 18, 2025.
+By the end of the 30 days we are $46 under budget with one board mostly assembled and the 
 This project is very much a work in progress but I am updating it with information, diagrams, and code as I work through it.
 
 ## What is it?
@@ -41,26 +42,43 @@ These brackets had two main purposes, to hold the x-axis rail in place and to ho
 I went through a couple iterations to find what worked best for our needs, and ended up with a design that effectively hung the x-axis rail from the bottom of the y-axis rails.
 This was necessary because we bought a premade chessboard and didnt have enough clearance and we need to leave clearance for the magnet mechanism.
 This did add height but it turned out to be a good thing by the end of the project.
+Next I designed the corner brackets which had the jobs of keeping the y-axis gantrys from slipping off the end of the rail and housig two more critical pully stacks each.
+These parts turned out to be more intricate that I originally though becase the pullys need to guide the belts in very precise ways that kept them from rubbing and colliding with other pullys and other belts.
+This was a game of measuring distances from reference locations and very tedious work in my experience.
+However, I did manage to create a bracket that needed no revisions and all belts and pullys were clear of each other.
+Thankfully I only had to crate one bracket and then I could mirror it to create the opposite corner bracket.
+The x-axis bracket is not done yet and needs to be modified to incorporate the magnet mechanism.
 I have provided the solidworks files in this page so anyone can use and modify to their needs as well.
 
 ### Magnetic Activation
+The next mechanical problem to solve was grabbing the pieces with a magnet when we need to and letting go of them when we dont.
+The obvious choice you would think would be an electromagnet.
+However, strong enough electromagnets are expensive and large which made them a quite unappealing choice.
+With this realizeation we looked into other types of magnets and landed on some rare-earth magnets.
+We found this awesome rare earth magnet retailer called [K&J Magnetics](https://www.kjmagnetics.com/) which had a really usefull tool that showed the theoretical pull force based on magnet shape and distanc from the magnet.
+Using this tool and some measurements we landed on using a stack of ring magnets that we would raise and lower with a rack and pinion system.
+This is the final mechanical solution that has not been finished and I will add the details as well as solidworks files when it is finished
+https://www.kjmagnetics.com/
 
-## Electrical System
+## Electrical Systems
+### Power System
+For this project we used a ras-pi-2W-zero for network connectivity and an arduino-mega as our microcontroler for the detection system and motors.
+The ras-pi needs 5V and around 2.5A while the arduino has a couple options for power that we were able to choose from.
+For the arduino we needed to leave the USB availiable to connect to the ras-pi and we needed the 5V rail on the arduino to connect to the stepper motor drivers.
+These factors left us with using the barrel jack for power which require a 12V input.
+In additon to the ras-pi and arduino, we also needed to power the stepper motor drivers that controled the gantry which thankfully were able to run off of 12V as well.
+This created a clear need for some sort of voltage regulation within the power system so I did some research into different ways to regulate voltage and found to main methods.
+One was using a step up regulator to go from 5V to 12V but that would heavily limit the current on the 12V rail.
+The other was using a buck converter to step the voltage down from 12V to 5V which didnt have as drastic an effect on current.
+I chose to use a buck converter bacause I had more electronics on the 
+I chose to go for a nice and plentiful 10A of current to ensure there was ample power in the case of power spikes and multiple operations ahappening at once.
+### Piece Detection
+### Motor drivers
 
 ## Embedded Systems
 
 ## Backend Software
-We want to talk about why some of these choices were made during the planning for this project.
-The reason we chose to use a coreXY gantry is because it is well documented with the rise of 3D printing and relatively simple to build.
-Another benfit to this system is its versitile shape meaning it can be planar or stacked depending on the system you are making.
-We chose a stacked configuration and made some custom modeled and printed brackets to save money. We will post all STL files used in the project.
-The reason behind using a photoresistor array for piece detection is because it cheap and effective. Having a piece on top of one will change the measured value ouput by that photoresistor.
-We then use software to determine if a space is occupied.
-The photoresistors are inset to the board with the wiring beneath to keep everyting clear of the pieces moving on top.
-A camera detection system may be easier to implement, however we wanted everthing contained internally for a cleaner look.
-We used and ras pi zero 2W because they are cheap and can have an internet connection for communication with other devices.
-They also have some GPIO pins that could be used if needed, however we do not for the project as it is now.
-We use an arduino mega because it has enough analog input pins as well as a low power requirement.
+
 We are using a central server because the ras pi chosen has very little processing power and a server was already available for use at no additional cost.
 If the server were not already availiable we would have chosen ras pi with more processing power to aavoid a pricey server.
 
