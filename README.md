@@ -1,9 +1,9 @@
-## Robotic-Chess
+# Robotic-Chess
 This is our progress on creating a physical board for two-player remote chess matches.
 The idea is to make three boards within a budget of $1000 and 30 days.
 This project is very much a work in progress but I am updating it with information, diagrams, and code as I work through it.
 
-# What is it?
+## What is it?
 The goal of this project is to have to 2 chess boards that roboticaly move pieces based on opponent actions and communicate through a private central server.
 The main mechanical system of each board is a coreXY gantry operated by two stepper motors and a belt and pully system.
 The movement of pieces is done through a magnet under the board and zinc bottom plated pieces.
@@ -14,6 +14,20 @@ There is a button to end your turn afterwhich the arduino reads the photoresisto
 The central server then determines which piece moved where and sends that information to the opponents board where the the piece is then moved.
 The cycle continues until one player wins.
 
+## Mechanical Systems
+### The Gantry
+The mechanical system was the first portion of the project to be planned out. From the start we knew that we wanted the system to work by using a magnet on a gantry beneath the board to drag the pieces on the other side.
+From here we needed to decide on how we wanted the gantry system to work.
+We decided that we wouldnt try and reinvent the wheel and browsed a few different systems used commonly in 3D printers.
+After looking through a our options, we settled on using a core-XY system.
+<img width="520" height="552" alt="Image" src="https://github.com/user-attachments/assets/09db13cd-5efd-45a4-b1ca-fb58bdc8525f" />
+### Magnetic Activation
+
+## Electrical System
+
+## Embedded Systems
+
+## Backend Software
 We want to talk about why some of these choices were made during the planning for this project.
 The reason we chose to use a coreXY gantry is because it is well documented with the rise of 3D printing and relatively simple to build.
 Another benfit to this system is its versitile shape meaning it can be planar or stacked depending on the system you are making.
