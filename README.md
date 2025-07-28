@@ -55,10 +55,9 @@ The next mechanical problem to solve was grabbing the pieces with a magnet when 
 The obvious choice you would think would be an electromagnet.
 However, strong enough electromagnets are expensive and large which made them a quite unappealing choice.
 With this realizeation we looked into other types of magnets and landed on some rare-earth magnets.
-We found this awesome rare earth magnet retailer called [K&J Magnetics](https://www.kjmagnetics.com/) which had a really usefull tool that showed the theoretical pull force based on magnet shape and distanc from the magnet.
+We found this awesome rare earth magnet retailer called [K&J Magnetics](https://www.kjmagnetics.com/) which had a really usefull tool that showed the theoretical pull force based on magnet shape and distanc from the target.
 Using this tool and some measurements we landed on using a stack of ring magnets that we would raise and lower with a rack and pinion system.
 This is the final mechanical solution that has not been finished and I will add the details as well as solidworks files when it is finished
-https://www.kjmagnetics.com/
 
 ## Electrical Systems
 ### Power System
@@ -70,9 +69,15 @@ In additon to the ras-pi and arduino, we also needed to power the stepper motor 
 This created a clear need for some sort of voltage regulation within the power system so I did some research into different ways to regulate voltage and found to main methods.
 One was using a step up regulator to go from 5V to 12V but that would heavily limit the current on the 12V rail.
 The other was using a buck converter to step the voltage down from 12V to 5V which didnt have as drastic an effect on current.
-I chose to use a buck converter bacause I had more electronics on the 
+I chose to use a buck converter bacause I had more electronics on the 12V rail which would also take more current at full load.
 I chose to go for a nice and plentiful 10A of current to ensure there was ample power in the case of power spikes and multiple operations ahappening at once.
+After choosing how I wanted to step the voltage, I needed to pick a power supply.
+While having a battery would be nice, it was not in the budget, so we just needed to convert outlet power into 12V 10A power.
+Amazon had lots of options for power bricks similar to laptop chargers so I just picked up one of those for simplicity.
 ### Piece Detection
+For piece detection we decided to use an array of photoresistors to detect when a piece was overhead.
+Force detection would have been ideal but the sensors were large and we did not have to tools to properly integrate them into the system.
+The system for the
 ### Motor drivers
 
 ## Embedded Systems
